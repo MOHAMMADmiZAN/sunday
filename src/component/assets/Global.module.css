@@ -1,0 +1,22 @@
+.textCenter {
+    text-align: center !important;
+}
+
+.w100 {
+    width: 100% !important;
+}
+
+.mTop50 {
+    margin-top: 50px;
+}
+
+.textUpper {
+    text-transform: uppercase !important;
+}
+
+.mxAuto {
+    margin: 0 auto !important;
+}
+.mTop20{
+    margin-top: 20px;
+}
