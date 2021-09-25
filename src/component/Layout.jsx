@@ -9,7 +9,7 @@ import styles from './assets/Global.module.css'
 function Layout() {
     return (
         <>
-            <Grid spacing={1} container={true} columns={4} className={styles.mTop50}>
+            <Grid spacing={1} container={true} columns={4} className={`${styles.mTop50} ${styles.mxAuto}`}>
                 <Insert/>
                 <Waiting/>
                 <Current/>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import axios from "axios";
 import {
     Button,
@@ -19,6 +19,9 @@ import CachedOutlinedIcon from '@mui/icons-material/CachedOutlined';
 
 function Current() {
     const [currentData, setCurrentData] = useState([])
+    const currentWin = useRef(window.location)
+
+
     const current = async () => {
         let url = 'http://127.0.0.1:5000/api/current'
         try {
@@ -34,8 +37,12 @@ function Current() {
     const currentUpdate = async (cid) => {
         let url = `http://127.0.0.1:5000/api/currentUp/${cid}`
         try {
+            // let response = await axios.post(url, {status: 'complete'})
             let response = await axios.post(url, {status: 'complete'})
-            console.log(response.data)
+            console.log(response)
+
+
+
 
         } catch (e) {
             console.log(e)
@@ -78,7 +85,8 @@ function Current() {
                                             <TableCell align={"center"}>{d.time}</TableCell>
                                             <TableCell align={"center"}><Button variant={"outlined"}
                                                                                 color={"info"} endIcon={
-                                                <CachedOutlinedIcon/>} onClick={()=>currentUpdate(d.id)}>{d.status}</Button></TableCell>
+                                                <CachedOutlinedIcon/>}
+                                                                                onClick={() => currentUpdate(d.id)}>{d.status}</Button></TableCell>
                                         </TableRow>
                                     })}
                                 </TableBody>

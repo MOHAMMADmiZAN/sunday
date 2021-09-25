@@ -32,6 +32,16 @@ function Complete(props) {
             console.log(e)
         }
     }
+    const remove = async (did) => {
+        let url = `http://127.0.0.1:5000/api/delete/${did}`
+        try {
+            const response = await axios(url)
+            console.log(response)
+            complete()
+        } catch (e) {
+            console.log(e)
+        }
+    }
     useEffect(
         () => {
             complete()
@@ -65,7 +75,8 @@ function Complete(props) {
                                             <TableCell align={"center"}>{d.time}</TableCell>
                                             <TableCell align={"center"}><Button variant={"outlined"}
                                                                                 color={"success"} endIcon={
-                                                <DoneAllIcon/>}>{d.status}</Button></TableCell>
+                                                <DoneAllIcon/>}
+                                                                                onClick={() => remove(d.id)}>{d.status}</Button></TableCell>
                                         </TableRow>
                                     })}
                                 </TableBody>
