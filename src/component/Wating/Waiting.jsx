@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     Button,
     Card,
@@ -19,14 +19,12 @@ import axios from "axios";
 
 function Waiting() {
     const [waitData, setWaitData] = useState([])
-    const waitingWin = useRef(window.location)
     const wait = async () => {
         let url = 'http://127.0.0.1:5000/api/waiting'
         try {
             const response = await axios(url)
             let data = await response.data;
             setWaitData(() => data)
-
 
 
         } catch (e) {
@@ -38,7 +36,6 @@ function Waiting() {
         try {
             let response = await axios.post(url, {status: 'current'})
             console.log(response)
-            waitingWin.current.reload()
 
         } catch (e) {
             console.log(e)
@@ -89,9 +86,7 @@ function Waiting() {
 
                         </TableContainer>
 
-                        {/*{waitData.map((d, i) =>*/}
 
-                        {/*)}*/}
                     </CardContent>
 
                 </Card>

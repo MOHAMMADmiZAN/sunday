@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {Button, Card, CardContent, Grid, Stack, TextField, Typography} from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
 import LocalizationProvider from '@mui/lab/LocalizationProvider'
@@ -13,7 +13,7 @@ const Insert = () => {
     // const [value, setValue] = useState([null, null]);
     const [name, setName] = useState("")
     const [value, setValue] = useState(new Date());
-    const win = useRef(window.location)
+
     let y = value.getFullYear()
     let m = value.getMonth()
     let d = value.getDate()
@@ -29,7 +29,7 @@ const Insert = () => {
         try {
             let response = await axios.post(url, {name: name, time: r})
             console.log(response)
-            win.current.reload()
+
 
         } catch (e) {
             console.log(e)
