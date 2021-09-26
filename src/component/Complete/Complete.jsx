@@ -17,7 +17,7 @@ import {
 import styles from "../assets/Global.module.css";
 import DoneAllIcon from '@mui/icons-material/DoneAll';
 
-function Complete(props) {
+function Complete() {
 
     const [completeData, setCompleteData] = useState([])
     const complete = async () => {
